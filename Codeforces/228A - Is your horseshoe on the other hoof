@@ -1,0 +1,7 @@
+a = set()
+horseshoes = list(map(int,input().split()))
+
+for valera in horseshoes:
+    a.add(valera)
+    
+print(4-len(a))
