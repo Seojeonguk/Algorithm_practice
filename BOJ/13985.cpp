@@ -1,0 +1,17 @@
+#ifdef _DEBUG
+#include "bits_stdc++.h"
+#else
+#include "bits/stdc++.h"
+#endif
+#pragma warning(disable:4996)
+using namespace std;
+int a, b, c;
+char d;
+int main() {
+#ifdef _CONSOLE 
+	freopen("sample.txt", "r", stdin);
+#endif
+	scanf("%d %c %d %c %d", &a, &d, &b, &d, &c);
+	if (a + b == c) puts("YES");
+	else puts("NO");
+}
