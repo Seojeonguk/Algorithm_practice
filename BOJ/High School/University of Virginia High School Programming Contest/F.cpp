@@ -46,7 +46,7 @@ using namespace std;
 int main() {
 #ifdef _CONSOLE 
 	freopen("sample.txt", "r", stdin);
-#endif]
+#endif
 	while (1) {
 		scanf("%d %d", &m, &n);
 		if (m + n == 0)
