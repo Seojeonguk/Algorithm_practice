@@ -11,7 +11,7 @@ using namespace std;
 int main() {
 #ifdef _CONSOLE 
 	freopen("sample.txt", "r", stdin);
-#endif]
+#endif
 	scanf("%d", &t);
 
 	while (t--) {
