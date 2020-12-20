@@ -1,3 +1,8 @@
+BOJ & CodeForces
+--------------------
 [![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=uk7880)](https://solved.ac/uk7880)
-https://solved.ac/
-https://www.acmicpc.net/
+
+This repository contains the solutions to BOJ and CodeForces competitions. 
+<br>The challenges can be found at
++ https://www.acmicpc.net/ (https://solved.ac/)
++ http://codeforces.com/
