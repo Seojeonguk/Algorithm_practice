@@ -1,19 +1,21 @@
-﻿#ifdef _DEBUG
+#ifdef _DEBUG
 #include "bits_stdc++.h"
 #else
 #include "bits/stdc++.h"
 #endif
 #pragma warning(disable:4996)
 using namespace std;
-int n, m, x, y, z, dist[501];
+
+int n, m, x, y, z;
 vector<pair<int, int> > v[501];
+long long dist[501];
 
 int main() {
 #ifdef _CONSOLE 
 	freopen("sample.txt", "r", stdin);
 #endif
 	scanf("%d %d", &n, &m);
-	for (int i = 1; i <= n; i++) dist[i] = 1 << 29;
+	for (int i = 1; i <= n; i++) dist[i] = 1LL << 62;
 	for (int i = 0; i < m; i++) {
 		scanf("%d %d %d", &x, &y, &z);
 		v[x].push_back({ z,y });
@@ -45,6 +47,6 @@ int main() {
 	if (loop) puts("-1");
 	else {
 		for (int i = 2; i <= n; i++)
-			printf("%d\n", dist[i] == 1 << 29 ? -1 : dist[i]);
+			printf("%lld\n", dist[i] == 1LL << 62 ? -1 : dist[i]);
 	}
 }
