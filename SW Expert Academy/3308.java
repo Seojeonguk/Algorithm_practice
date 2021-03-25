@@ -9,7 +9,6 @@ public class Solution {
 	static int t,n,lis_idx;
 	static int[] arr,lis;
 	
-	
 	public static void main(String[] args) throws Exception {
 		t = Integer.valueOf(br.readLine());
 		for(int tc=1 ; tc<=t; tc++) {
