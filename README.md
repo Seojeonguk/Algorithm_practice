@@ -6,7 +6,7 @@ BOJ & CodeForces
 
 
 This repository contains the solutions to BOJ, Codeforces, SWEA, JUNGOL, goorm!
-<br>The challenges can be found at
+<br>The challenges can be found at ..
 + https://www.acmicpc.net/ (https://solved.ac/)
 + http://codeforces.com/
 + https://swexpertacademy.com/
