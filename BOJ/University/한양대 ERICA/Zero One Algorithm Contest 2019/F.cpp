@@ -1,47 +1,43 @@
-﻿#ifdef _DEBUG
+#ifdef _DEBUG
 #include "bits_stdc++.h"
 #else
 #include "bits/stdc++.h"
 #endif
 #pragma warning(disable:4996)
 using namespace std;
+typedef long long ll;
+
 int n, k,x,y;
-bool visit[101];
-vector<int> v[101];
+int arr[102][102];
 
 int main() {
 #ifdef _CONSOLE 
-	freopen("sample.txt", "r", stdin);
+    freopen("sample.txt", "r", stdin);
 #endif
-	scanf("%d %d", &n, &k);
+  
+    scanf("%d %d", &n, &k);
 
-	for (int i = 0; i < k; i++) {
-		scanf("%d %d", &x, &y);
-		v[x].push_back(y);
-		v[y].push_back(x);
-	}
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            arr[i][j] = 1000000;
+    for (int i = 0; i < k; i++) {
+        scanf("%d %d", &x, &y);
+        x--, y--;
+        arr[x][y] = arr[y][x] = 1;
+    }
 
-	queue < pair<int, int> > q;
-	q.push({ 1,0 });
-	visit[1] = true;
+    for (int k = 0; k < n; k++)
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                if (arr[i][k] + arr[k][j] < arr[i][j])
+                    arr[i][j] = arr[i][k] + arr[k][j];
 
-	while (!q.empty()) {
-		auto outdata = q.front();
-		q.pop();
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            if (arr[i][j] >= 7) {
+                puts("Big World!");
+                return 0;
+            }
 
-		if (outdata.second == 6) continue;
-		int size = v[outdata.first].size();
-
-		for (int i = 0; i < size; i++)
-			if (!visit[v[outdata.first][i]]) {
-				visit[v[outdata.first][i]] = true;
-				q.push({ v[outdata.first][i],outdata.second + 1 });
-			}
-	}
-	for(int i=1;i<=n;i++)
-		if (!visit[i]) {
-			puts("Big World!");
-			return 0;
-		}
-	puts("Small World!");
+    puts("Small World!");
 }
