@@ -5,38 +5,47 @@ public class Main {
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
+	static StringBuilder sb = new StringBuilder();
 	
-	static int n,a,b,c,d;
+	static int MAX=1001;
+	static int n;
+	static int[][] plane;
 	static int[] ans;
-	static int[][] arr;
+	static int x,y,width,height;
 	
+
 	public static void main(String[] args) throws Exception {
+		n = Integer.parseInt(br.readLine());
 		
-		
-		n = Integer.valueOf(br.readLine());
-		
-		arr = new int[102][102];
+		plane = new int[MAX][MAX];
+		for(int i=0;i<MAX;i++) {
+			Arrays.fill(plane[i], n);
+		}
 		ans = new int[n+1];
 		
-		for(int i=1;i<=n;i++) {
+		for(int i=0;i<n;i++) {
 			st = new StringTokenizer(br.readLine());
-			a = Integer.valueOf(st.nextToken());
-			b = Integer.valueOf(st.nextToken());
-			c = Integer.valueOf(st.nextToken());
-			d = Integer.valueOf(st.nextToken());
+			x = Integer.parseInt(st.nextToken());
+			y = Integer.parseInt(st.nextToken());
+			width = Integer.parseInt(st.nextToken());
+			height = Integer.parseInt(st.nextToken());
 			
-			for(int j=a;j<a+c;j++)
-				for(int k=b;k<b+d;k++) {
-					ans[arr[j][k]]--;
-					arr[j][k] = i;
-					ans[i]++;
+			for(int paper_x = x; paper_x < x+ width; paper_x++ ) {
+				for(int paper_y = y; paper_y < y+height; paper_y++) {
+					ans[plane[paper_x][paper_y]]--;
+					plane[paper_x][paper_y] = i;
+					ans[plane[paper_x][paper_y]]++;
 				}
+			}
 		}
 		
-		for(int i=1;i<=n;i++)
-			bw.write(String.valueOf(ans[i]+"\n"));
+		for(int i=0;i<n;i++) {
+			sb.append(ans[i]).append("\n");
+		}
 		
+		bw.write(sb.toString());
 		bw.flush();
 		bw.close();
+		br.close();
 	}
 }
