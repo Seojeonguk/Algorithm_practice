@@ -8,17 +8,15 @@ public class Main {
 	static StringBuilder sb = new StringBuilder();
 
 	static String ipv6;
-	static String[] s;
-	static int s_size,idx;
 	
 
 	public static void main(String[] args) throws Exception {
 		ipv6 = br.readLine();
 		
-		s = ipv6.split(":");
-		s_size = s.length;
-		
-		for(int i=0;i<s_size;i++)
+		String[] s = ipv6.split(":");
+		int s_size = s.length;
+		int idx =0;
+		for(int i=0;i<s_size;i++) 
 			if(s[i].equals(""))
 				idx++;
 		
@@ -39,7 +37,9 @@ public class Main {
 		}
 		
 		if(ipv6.charAt(ipv6.length()-1)==':') {
-			sb.append(":0000");
+			for(int i=0;i<8-s_size;i++) {
+				sb.append(":0000");
+			}
 		}
 		
 		bw.write(sb.toString());
