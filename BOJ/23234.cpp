@@ -10,5 +10,5 @@ int main() {
 #ifdef _CONSOLE 
     freopen("sample.txt", "r", stdin);
 #endif
-    puts("The world says hello!")
+    puts("The world says hello!");
 }
