@@ -1,4 +1,4 @@
-﻿#ifdef _DEBUG
+#ifdef _DEBUG
 #include "bits_stdc++.h"
 #else
 #include "bits/stdc++.h"
@@ -63,7 +63,7 @@ int main() {
 		if (tmp) {
 			for (int i = 0; i < tmp; i++) {
 				ans *= x.first;
-				if (ans > 1000000000) last = true;
+				if (ans >= 1000000000) last = true;
 				ans %= 1000000000;
 			}
 		}
