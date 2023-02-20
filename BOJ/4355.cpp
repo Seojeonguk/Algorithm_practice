@@ -1,11 +1,12 @@
-﻿#ifdef _DEBUG
+#ifdef _DEBUG
 #include "bits_stdc++.h"
 #else
 #include "bits/stdc++.h"
 #endif
 #pragma warning(disable:4996)
 using namespace std;
-typedef long long int ll;
+typedef long long ll;
+
 ll n;
 
 int main() {
@@ -15,11 +16,14 @@ int main() {
 	while (1) {
 		scanf("%lld", &n);
 		if (!n) break;
-		if (n < 3) puts("hi");
+		if (n == 1) {
+			puts("0");
+			continue;
+		}
 		ll ans = n;
-		for (ll i = 2; i*i <= n; i++) {
-			if (n%i == 0) {
-				while (n%i == 0) n /= i;
+		for (ll i = 2; i * i <= n; i++) {
+			if (n % i == 0) {
+				while (n % i == 0) n /= i;
 				ans -= ans / i;
 			}
 		}
