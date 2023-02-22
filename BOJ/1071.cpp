@@ -29,9 +29,11 @@ int main() {
 		if (dq[i].first + 1 == dq[i + 1].first) {
 			if (i + 2 < dq.size()) {
 				dq.insert(dq.begin() + i + 1, { dq[i + 2].first,1 });
-				dq[i + 3].second--;
-				if (!dq[i + 3].second)
-					dq.erase(dq.begin() + i + 3);
+				if (i + 3 < dq.size()) {
+					dq[i + 3].second--;
+					if (!dq[i + 3].second)
+						dq.erase(dq.begin() + i + 3);
+				}
 			}
 			else {
 				swap(dq[i], dq[i + 1]);
