@@ -7,11 +7,6 @@
 using namespace std;
 typedef long long ll;
 
-#define FOR(i,n) for(int i = 0;i < n;i++)
-#define MP make_pair
-#define PB push_back
-#define ALL(a) (boards).begin(),(boards).end()
-
 int n;
 char boards[1003][1003];
 bool visit[1003][1003];
