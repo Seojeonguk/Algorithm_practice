@@ -39,8 +39,6 @@ int main() {
         auto cur = q.front();
         q.pop();
 
-        //printf("%d %d %d %d\n", cur.first / 8, cur.first % 8, cur.second / 8, cur.second % 8);
-
         for (int i = 0; i < 8; i++) {
             int nx = cur.first / 8 + dir[i][0];
             int ny = cur.first % 8 + dir[i][1];
