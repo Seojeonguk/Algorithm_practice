@@ -30,9 +30,10 @@ void solve(int idx, int cnt) {
             auto outdata = q.front();
             q.pop();
             
-            if(arr[outdata.x][outdata.y]==0)
+            if(arr[outdata.x][outdata.y]==0) {
                 ma = max(ma,outdata.cnt);
-            temp--;
+            	temp--;
+            }
 
             for (int i = 0; i < 4; i++) {
                 int nx = outdata.x + X[i];
@@ -64,8 +65,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             scanf("%d", &arr[i][j]);
-            if (arr[i][j] == 1) chk--;
-            else if (arr[i][j] == 2) v.push_back({ i,j });
+            if(arr[i][j]) chk--;
+            if (arr[i][j] == 2) v.push_back({ i,j });
         }
     }
 
