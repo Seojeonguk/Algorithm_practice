@@ -12,16 +12,16 @@ public class Main {
     public static void main(String[] args) throws Exception {
         int alienShipCnt = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        int BakhytzhanX = Integer.parseInt(st.nextToken()) + 10000;
-        int BakhytzhanY = Integer.parseInt(st.nextToken()) + 10000;
+        int BakhytzhanX = Integer.parseInt(st.nextToken());
+        int BakhytzhanY = Integer.parseInt(st.nextToken());
 
         boolean isAlienShipLanded = false;
         for (int i = 0; i < alienShipCnt; i++) {
             st = new StringTokenizer(br.readLine());
-            int shipStartX = Integer.parseInt(st.nextToken()) + 10000;
-            int shipStartY = Integer.parseInt(st.nextToken()) + 10000;
-            int shipEndX = Integer.parseInt(st.nextToken()) + 10000;
-            int shipEndY = Integer.parseInt(st.nextToken()) + 10000;
+            int shipStartX = Integer.parseInt(st.nextToken());
+            int shipStartY = Integer.parseInt(st.nextToken());
+            int shipEndX = Integer.parseInt(st.nextToken());
+            int shipEndY = Integer.parseInt(st.nextToken());
 
             isAlienShipLanded |= (shipStartX <= BakhytzhanX && BakhytzhanX <= shipEndX && shipStartY <= BakhytzhanY && BakhytzhanY <= shipEndY);
         }
