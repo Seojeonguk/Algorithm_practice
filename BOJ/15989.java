@@ -7,8 +7,7 @@ public class Main {
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
 
-    static int MOD = 1000000009;
-    static int MAX_CASE = 1000000;
+    static int MAX_CASE = 10000;
 
     public static void main(String[] args) throws Exception {
         int[] cases = new int[MAX_CASE + 1];
