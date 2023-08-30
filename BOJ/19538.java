@@ -31,35 +31,20 @@ public class Main {
             int distributor = Integer.parseInt(st.nextToken());
             rumorTime[distributor] = 0;
             distributors.add(distributor);
-            for (int aroundDistributor : aroundPersons[distributor]) {
-                aroundDistributors[aroundDistributor]++;
-            }
         }
 
-        int time = 1;
         while (!distributors.isEmpty()) {
-            HashSet<Integer> candidateDistributors = new HashSet<>();
-            int size = distributors.size();
-            for (int i = 0; i < size; i++) {
-                int currentDistributor = distributors.poll();
-                for (int candidateNextDistributors : aroundPersons[currentDistributor]) {
-                    if (rumorTime[candidateNextDistributors] != -1 || aroundDistributors[candidateNextDistributors] < (aroundPersons[candidateNextDistributors].size() + 1) / 2) {
-                        continue;
-                    }
-                    candidateDistributors.add(candidateNextDistributors);
-                }
-            }
+            int distributor = distributors.poll();
 
-            Iterator<Integer> iterator = candidateDistributors.iterator();
-            while (iterator.hasNext()) {
-                int distributor = iterator.next();
-                rumorTime[distributor] = time;
-                for (int aroundDistributor : aroundPersons[distributor]) {
-                    aroundDistributors[aroundDistributor]++;
+            for (int nextDistributor : aroundPersons[distributor]) {
+                aroundDistributors[nextDistributor]++;
+
+                if (rumorTime[nextDistributor] != -1 || aroundDistributors[nextDistributor] < (aroundPersons[nextDistributor].size() + 1) / 2) {
+                    continue;
                 }
-                distributors.add(distributor);
+                distributors.add(nextDistributor);
+                rumorTime[nextDistributor] = rumorTime[distributor] + 1;
             }
-            time++;
         }
 
         for (int idx = 1; idx <= personCnt; idx++) {
