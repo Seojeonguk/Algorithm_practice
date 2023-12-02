@@ -27,10 +27,6 @@ public class Main {
     }
 
     public static int getCommunicationTime(int a, int b, int c, int d, int k) {
-        if (d < c) {
-            return 0;
-        }
-
         int[][] ranges = new int[2][2];
         if (Math.min(a, b) <= Math.min(c, d)) {
             ranges[0][0] = Math.min(a, b);
