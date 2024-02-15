@@ -46,12 +46,12 @@ public class Main {
                 stars[i][j] = ' ';
             }
         }
-        solve(stars, size / 5, n, size / 2, size / 2, true);
+        solve(stars, size / 5, size / 2, size / 2, true);
         return stars;
     }
 
-    public static void solve(char[][] stars, int size, int n, int x, int y, boolean range) {
-        if (n == 1) {
+    public static void solve(char[][] stars, int size, int x, int y, boolean range) {
+        if (size == 1) {
             if (range) {
                 drawStar(stars, x, y);
             }
@@ -60,7 +60,7 @@ public class Main {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                solve(stars, size / 5, n - 1, x + size * (i - 2), y + size * (j - 2), range & DRAW_STAR[i][j]);
+                solve(stars, size / 5, x + size * (i - 2), y + size * (j - 2), range & DRAW_STAR[i][j]);
             }
         }
     }
