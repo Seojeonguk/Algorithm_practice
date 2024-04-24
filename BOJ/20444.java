@@ -10,11 +10,6 @@ public class Main {
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             StringBuilder sb = new StringBuilder();
 
-            long a = 1;
-            for (int i = 0; i < 31; i++) {
-                a *= 2;
-            }
-
             StringTokenizer st = new StringTokenizer(br.readLine());
             long n = Integer.parseInt(st.nextToken());
             long k = Long.parseLong(st.nextToken());
