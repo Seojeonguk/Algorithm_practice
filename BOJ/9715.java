@@ -31,7 +31,7 @@ public class Main {
                     System.arraycopy(rows, 0, heights[row], 1, rows.length);
                 }
 
-                int totalSurface = getSurfaceAbove(heights) * 2 + getSurfaceSide(heights);
+                int totalSurface = getSurface(heights);
                 sb.append(totalSurface).append("\n");
             }
 
@@ -39,23 +39,14 @@ public class Main {
         }
     }
 
-    public static int getSurfaceAbove(char[][] heights) {
-        int surface = 0;
-        for (char[] height : heights) {
-            for (char c : height) {
-                if (c != '0') {
-                    surface++;
-                }
-            }
-        }
-
-        return surface;
-    }
-
-    public static int getSurfaceSide(char[][] heights) {
+    public static int getSurface(char[][] heights) {
         int surface = 0;
         for (int row = 1; row < heights.length - 1; row++) {
             for (int col = 1; col < heights[row].length - 1; col++) {
+                if (heights[row][col] != '0') {
+                    surface += 2;
+                }
+
                 for (int[] directions : DIRECTIONS) {
                     char a = heights[row][col];
                     char b = heights[row + directions[0]][col + directions[1]];
