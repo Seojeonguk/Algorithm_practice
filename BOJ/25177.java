@@ -1,1 +1,42 @@
-import%20java.io.BufferedReader%3B%0D%0Aimport%20java.io.BufferedWriter%3B%0D%0Aimport%20java.io.InputStreamReader%3B%0D%0Aimport%20java.io.OutputStreamWriter%3B%0D%0Aimport%20java.util.StringTokenizer%3B%0D%0A%0D%0Apublic%20class%20Main%20%7B%0D%0A%0D%0A%20%20%20%20public%20static%20void%20main(String%5B%5D%20args)%20throws%20Exception%20%7B%0D%0A%20%20%20%20%20%20%20%20try%20(BufferedWriter%20bw%20%3D%20new%20BufferedWriter(new%20OutputStreamWriter(System.out))%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20BufferedReader%20br%20%3D%20new%20BufferedReader(new%20InputStreamReader(System.in)))%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20StringBuilder%20sb%20%3D%20new%20StringBuilder()%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20StringTokenizer%20st%20%3D%20new%20StringTokenizer(br.readLine())%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20int%20currentFacilityCnt%20%3D%20Integer.parseInt(st.nextToken())%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20int%20pastFacilityCnt%20%3D%20Integer.parseInt(st.nextToken())%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20int%20maxFacilityCnt%20%3D%20Math.max(currentFacilityCnt%2C%20pastFacilityCnt)%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20int%5B%5D%20currentFacilityScores%20%3D%20new%20int%5BmaxFacilityCnt%5D%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20StringTokenizer%20currentFacilityScoresToken%20%3D%20new%20StringTokenizer(br.readLine())%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20(int%20i%20%3D%200%3B%20i%20%3C%20currentFacilityCnt%3B%20i%2B%2B)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20currentFacilityScores%5Bi%5D%20%3D%20Integer.parseInt(currentFacilityScoresToken.nextToken())%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20int%5B%5D%20pastFacilityScores%20%3D%20new%20int%5BmaxFacilityCnt%5D%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20StringTokenizer%20pastFacilityScoresToken%20%3D%20new%20StringTokenizer(br.readLine())%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20(int%20i%20%3D%200%3B%20i%20%3C%20pastFacilityCnt%3B%20i%2B%2B)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pastFacilityScores%5Bi%5D%20%3D%20Integer.parseInt(pastFacilityScoresToken.nextToken())%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20int%20maxIncreaseScore%20%3D%200%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20(int%20i%20%3D%200%3B%20i%20%3C%20maxFacilityCnt%3B%20i%2B%2B)%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20maxIncreaseScore%20%3D%20Math.max(maxIncreaseScore%2C%20Math.max(0%2C%20pastFacilityScores%5Bi%5D%20-%20currentFacilityScores%5Bi%5D))%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20sb.append(maxIncreaseScore)%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20bw.write(sb.toString())%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+             BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            StringBuilder sb = new StringBuilder();
+
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int currentFacilityCnt = Integer.parseInt(st.nextToken());
+            int pastFacilityCnt = Integer.parseInt(st.nextToken());
+
+            int maxFacilityCnt = Math.max(currentFacilityCnt, pastFacilityCnt);
+
+            int[] currentFacilityScores = new int[maxFacilityCnt];
+            StringTokenizer currentFacilityScoresToken = new StringTokenizer(br.readLine());
+            for (int i = 0; i < currentFacilityCnt; i++) {
+                currentFacilityScores[i] = Integer.parseInt(currentFacilityScoresToken.nextToken());
+            }
+
+            int[] pastFacilityScores = new int[maxFacilityCnt];
+            StringTokenizer pastFacilityScoresToken = new StringTokenizer(br.readLine());
+            for (int i = 0; i < pastFacilityCnt; i++) {
+                pastFacilityScores[i] = Integer.parseInt(pastFacilityScoresToken.nextToken());
+            }
+
+            int maxIncreaseScore = 0;
+            for (int i = 0; i < maxFacilityCnt; i++) {
+                maxIncreaseScore = Math.max(maxIncreaseScore, Math.max(0, pastFacilityScores[i] - currentFacilityScores[i]));
+            }
+
+            sb.append(maxIncreaseScore);
+
+            bw.write(sb.toString());
+        }
+    }
+}
