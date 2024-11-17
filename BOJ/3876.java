@@ -41,8 +41,6 @@ public class Main {
     public static int calMinChange(String start, String target, String[][] rules) {
         int minChange = Integer.MAX_VALUE;
 
-        int targetLength = target.length();
-
         Queue<Strings> q = new LinkedList<>();
         HashSet<String> hs = new HashSet<>();
         q.add(new Strings(start, 0));
@@ -56,7 +54,7 @@ public class Main {
                 break;
             }
 
-            if (cur.str.length() > targetLength) {
+            if (cur.str.length() > 10) {
                 continue;
             }
 
