@@ -32,3 +32,8 @@
 *.app
 /.vs
 /algorithm
+
+out
+.idea
+Algorithm_practice.iml
+Solving
