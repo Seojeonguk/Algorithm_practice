@@ -40,21 +40,18 @@ public class Main {
                 return 0;
             }
 
-            long exp = 1;
             long cur = 1;
-
             long absX = Math.abs(x);
-
             while (cur < absX) {
                 cur *= 2;
-                exp += 1;
             }
 
-            if (x > 0) {
-                return (cur - 1) * 4 + absX;
-            } else {
-                return (cur - 1) * 4 + cur * 2 + absX;
+            long ret = (cur - 1) * 4 + absX;
+            if (x < 0) {
+                ret += cur * 2;
             }
+
+            return ret;
         }
 
         public void printAns() throws IOException {
