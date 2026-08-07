@@ -1,0 +1,29 @@
+class Solution {
+    public int[][] solution(int n) {
+        int[][] answer = new int[n][n];
+        int[][] dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+        int value = 1;
+        int x = 0;
+        int y = 0;
+        int idx = 0;
+        while (value <= n * n) {
+            int nx = x + dir[idx][0];
+            int ny = y + dir[idx][1];
+
+            if (nx < 0 || nx >= n || ny < 0 || ny >= n || answer[nx][ny] != 0) {
+                idx = (idx + 1) % 4;
+            }
+
+            nx = x + dir[idx][0];
+            ny = y + dir[idx][1];
+
+            answer[x][y] = value;
+            value++;
+            x = nx;
+            y = ny;
+        }
+        
+        return answer;
+    }
+}
